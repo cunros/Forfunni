@@ -6,67 +6,69 @@ public class testSum
     public static void main(String[] args) 
     {
         
-        Scanner scanner = new Scanner(System.in);
-        int ifTwelve = 0;
-
-        System.out.println("Hello, you must add two numbers together that sums up to twelve. Or DIE!\n******************\n");
-
-        while(ifTwelve != 12)
+        try(Scanner scanner = new Scanner(System.in))
         {
+            int ifTwelve = 0;
 
-            boolean isANumber = false;
-            int n1=0;
-            int n2=0;
+            System.out.println("Hello, you must add two numbers together that sums up to twelve. Or DIE!\n******************\n");
 
-            while(!isANumber)
+            while(ifTwelve != 12)
             {
 
-                System.out.print("First number: ");
-                if(scanner.hasNextInt())
+                boolean isANumber = false;
+                int n1=0;
+                int n2=0;
+
+                while(!isANumber)
                 {
 
-                    n1 = scanner.nextInt();
-                    isANumber = true;
+                    System.out.print("First number: ");
+                    if(scanner.hasNextInt())
+                    {
+
+                        n1 = scanner.nextInt();
+                        isANumber = true;
+
+                    }
+                    else{System.out.println("Put a number!!");isANumber=false;scanner.next();}
 
                 }
-                else{System.out.println("Put a number!!");isANumber=false;scanner.next();}
+                
+                isANumber = false;
 
-            }
-        isANumber = false;
-            while(!isANumber)
-            {
-
-                System.out.print("Second number: ");
-                if(scanner.hasNextInt())
+                while(!isANumber)
                 {
 
-                    n2 = scanner.nextInt();
-                    isANumber = true;
+                    System.out.print("Second number: ");
+                    if(scanner.hasNextInt())
+                    {
+
+                        n2 = scanner.nextInt();
+                        isANumber = true;
+
+                    }
+                    else{System.out.println("Put a number!!");isANumber=false;scanner.next();}
 
                 }
-                else{System.out.println("Put a number!!");isANumber=false;scanner.next();}
+            
+                int FN = n1+n2;
+                if(FN != 12)
+                {
 
+                    System.out.println("That does not add up to 12!!\n");
+
+                }
+                else if(FN==12)
+                {
+                    ifTwelve = 12;
+                    System.out.println("\n\nWow that adds up to "+ifTwelve);
+
+                }
+                
             }
-        
-            int FN = n1+n2;
-            if(FN != 12)
-            {
 
-                FN =0;
-                n1=0;
-                n2=0;
-                ifTwelve = 0;
-                System.out.println("That does not add up to 12!!\n");
-
-            }
-            else if(FN==12)
-            {
-                ifTwelve = 12;
-                System.out.println("\n\nWow that adds up to "+ifTwelve);
-
-            }
         }
-        scanner.close();
+
     }
 
 }

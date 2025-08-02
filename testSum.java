@@ -52,7 +52,7 @@ public class testSum
             if(FN != 12)
             {
 
-                FN = 0;
+                FN =0;
                 n1=0;
                 n2=0;
                 ifTwelve = 0;
@@ -66,7 +66,7 @@ public class testSum
 
             }
         }
-
+        scanner.close();
     }
 
 }

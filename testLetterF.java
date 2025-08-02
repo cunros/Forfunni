@@ -6,31 +6,33 @@ public class testLetterF
     public static void main(String[]args)
     {
 
-        Scanner scanner = new Scanner(System.in);
-        boolean reap = false;
-
-        while(!reap)
+        try(Scanner scanner = new Scanner(System.in))
         {
+            boolean reap = false;
 
-            System.out.print("Please put the letter F: ");
-            String F = scanner.next();
-
-            if (F.equalsIgnoreCase("F"))
+            while(!reap)
             {
 
-                System.out.println("Congrats you inputted: "+F);
-                reap = true;
-                return;
+                System.out.print("Please put the letter F: ");
+                String F = scanner.next();
+
+                if (F.equalsIgnoreCase("F"))
+                {
+
+                    System.out.println("Congrats you inputted: "+F);
+                    reap = true;
+
+                }
+                else
+                {
+
+                    System.out.print("Not it boss try again\n");
+                    reap = false;
+
+                }
 
             }
-            else
-            {
-
-                System.out.print("Not it boss try again\n");
-                reap = false;
-
-            }
-
+            scanner.close();
         }
 
     }

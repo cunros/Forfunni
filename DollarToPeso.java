@@ -49,6 +49,7 @@ class DollarToPeso
                         reap = true;
 
                     }else if(YN.equalsIgnoreCase("N")){ isYN=true; reap=false; }else{ System.out.println("Please only put numbers\n"); }
+                    
                 }
 
             }

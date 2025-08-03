@@ -1,52 +1,61 @@
 import java.util.Scanner;
 
-public class InchesToCentimeters 
+class InchesToCentimeters
 {
-    public static void main(String[] args) 
-    {   
 
-        boolean end = false;
-        double inchestocentimeters = 2.54;
+    public static void main(String[]args)
+    {
+
+        System.out.println("*********\nInches to centimeters converter");
 
         try(Scanner scanner = new Scanner(System.in))
         {
-            while (end == false)
+
+            boolean isNum=false;
+            boolean reap=true;
+            double Conv = 2.54;
+            
+            while(reap)
             {
-                boolean validnum = false;
-                double inches = 0.0;
-                while(validnum == false)
+
+                while(!isNum)
                 {
 
-                    System.out.print("\n\nEnter length in inches: ");
+                    System.out.print("\nInput inches:");
                     if(scanner.hasNextDouble())
                     {
-                        inches = scanner.nextDouble();
-                        validnum = true;
-                    }
-                    else
-                    {
-                        System.out.println("ERR\nERR\n\n\nNot a number! Please input numbers only\n\n");
-                        scanner.next();
-                    }
+
+                        double inches = scanner.nextDouble();
+                        System.out.println(inches+" Inches in centimeters is "+ Conv*inches);
+                        isNum=true;
+
+                    }else{ System.out.println("Not a number!");scanner.next(); }
 
                 }
 
-                double centimeters = inches * inchestocentimeters;
-                System.out.println("\n\n"+inches+" inches is "+centimeters+" in centimeters\n\n");
+                boolean isYN = false;
                 
-                System.out.print("Convert Again? Y/N: ");   
-                String repeat = scanner.next();
-            
-                if(!repeat.equalsIgnoreCase("Y"))
+                while(!isYN)
                 {
-                    end = true;
+
+                    System.out.print("\nConver again?Y/N ");
+                    String YN = scanner.next();
+                    if(YN.equalsIgnoreCase("Y"))
+                    {
+
+                        reap =true;
+                        isYN=true;
+
+                    }else if(YN.equalsIgnoreCase("N")){ reap=false; isYN =true; } else{ System.out.print("\nInput only Y or N!!"); isYN=false;}
+
                 }
+
             }
 
-            scanner.close();   
-        
+
         }
-    
+
+
     }
 
 }

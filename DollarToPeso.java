@@ -24,6 +24,7 @@ class DollarToPeso
                 {
 
                     System.out.print("\nInput dollar: ");
+                    
                     if(scanner.hasNextDouble())
                     {
 

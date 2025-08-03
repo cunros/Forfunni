@@ -1,52 +1,59 @@
 import java.util.Scanner;
 
-public class DollarToPeso 
+class DollarToPeso
 {
-    public static void main(String[] args) 
-    {   
 
-        boolean end = false;
-        double dollarconver = 50.60;
-        double dollar = 0.0;
+    public static void main(String[]args)
+    {
+
+        System.out.println("\n\nDollar to peso\n\n");
+
         try(Scanner scanner = new Scanner(System.in))
         {
 
-            while (!end)
+            boolean reap=true;
+
+            while(reap)
             {
-                boolean validnum = false;
-                while(!validnum)
+
+                double Dollarconv = 50.60;
+                boolean isYN=false;
+                boolean isNum=false;
+
+                while(!isNum)
                 {
 
-                    System.out.print("\n\nEnter amoount of dollars: ");
+                    System.out.print("\nInput dollar: ");
                     if(scanner.hasNextDouble())
                     {
-                        dollar = scanner.nextDouble();
-                        validnum = true;
-                    }
-                    else
-                    {
-                        System.out.println("ERR\nERR\n\n\nNot a number! Please input numbers only\n\n");
-                        scanner.next();
-                    }
+
+                        double dollar = scanner.nextDouble();
+                        isNum= true;
+                        System.out.println("\n\n"+dollar+" dollar(s) is "+Dollarconv*dollar+" In pesos");
+
+                    }else{ System.out.println("Please input only numbers"); isNum=false; }
 
                 }
 
-                double pesos = dollar * dollarconver;
-                System.out.println("\n\n"+dollar+" USD is "+pesos+" in PHP\n\n");
-                
-                System.out.print("Convert Again? Y/N: ");   
-                String repeat = scanner.next();
-            
-                if(!repeat.equalsIgnoreCase("Y"))
+                while(!isYN)
                 {
-                    end = true;
+
+                    System.out.print("\n\nConvert again?Y/N: ");
+                    String YN = scanner.next();
+
+                    if(YN.equalsIgnoreCase("Y"))
+                    {
+
+                        isYN = true;
+                        reap = true;
+
+                    }else if(YN.equalsIgnoreCase("N")){ isYN=true; reap=false; }else{ System.out.println("Please only put numbers\n"); }
                 }
 
+            }
 
         }
 
-        scanner.close();
-        }
     }
 
 }

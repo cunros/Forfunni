@@ -11,12 +11,16 @@ class InchesToCentimeters
         try(Scanner scanner = new Scanner(System.in))
         {
 
-            boolean isNum=false;
             boolean reap=true;
             double Conv = 2.54;
+
             
             while(reap)
             {
+
+                boolean isYN=false;
+                boolean isNum=false;
+
 
                 while(!isNum)
                 {
@@ -32,19 +36,18 @@ class InchesToCentimeters
                     }else{ System.out.println("Not a number!");scanner.next(); }
 
                 }
-
-                boolean isYN = false;
                 
                 while(!isYN)
                 {
 
                     System.out.print("\nConver again?Y/N ");
                     String YN = scanner.next();
+                    
                     if(YN.equalsIgnoreCase("Y"))
                     {
 
-                        reap =true;
                         isYN=true;
+                        reap = true;
 
                     }else if(YN.equalsIgnoreCase("N")){ reap=false; isYN =true; } else{ System.out.print("\nInput only Y or N!!"); isYN=false;}
 
